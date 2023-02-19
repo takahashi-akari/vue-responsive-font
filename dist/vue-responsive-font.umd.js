@@ -131,21 +131,18 @@ if (typeof window !== 'undefined') {
 
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(203);
-;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js!./node_modules/ts-loader/index.js??clonedRuleSet-86.use[2]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[4]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/vueResponsiveFont.vue?vue&type=template&id=9d6591be&ts=true
+;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js!./node_modules/ts-loader/index.js??clonedRuleSet-86.use[2]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[4]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/vueResponsiveFont.vue?vue&type=template&id=932a119c&ts=true
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", null, " Hello World! ");
 }
-;// CONCATENATED MODULE: ./src/vueResponsiveFont.vue?vue&type=template&id=9d6591be&ts=true
+;// CONCATENATED MODULE: ./src/vueResponsiveFont.vue?vue&type=template&id=932a119c&ts=true
 
 ;// CONCATENATED MODULE: ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js!./node_modules/ts-loader/index.js??clonedRuleSet-86.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/vueResponsiveFont.vue?vue&type=script&lang=ts
-/* harmony default export */ var vueResponsiveFontvue_type_script_lang_ts = ({
-  data() {
-    return {
-      greeting: 'Hello World!'
-    };
-  }
-});
+
+/* harmony default export */ var vueResponsiveFontvue_type_script_lang_ts = ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.defineComponent)({
+  name: "vueResponsiveFont"
+}));
 ;// CONCATENATED MODULE: ./src/vueResponsiveFont.vue?vue&type=script&lang=ts
  
 // EXTERNAL MODULE: ./node_modules/vue-loader/dist/exportHelper.js

@@ -1,11 +1,8 @@
 <script lang="ts">
-export default {
-  data() {
-    return {
-      greeting: 'Hello World!'
-    }
-  }
-}
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "vueResponsiveFont",
+});
 </script>
 
 <template>
