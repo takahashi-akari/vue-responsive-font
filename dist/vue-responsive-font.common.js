@@ -92,7 +92,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "vueResponsiveFont": function() { return /* reexport */ vueResponsiveFont; }
+  "default": function() { return /* binding */ entry_lib; }
 });
 
 ;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
@@ -141,9 +141,11 @@ const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(vueResponsiveFo
 /* harmony default export */ var vueResponsiveFont = (__exports__);
 ;// CONCATENATED MODULE: ./src/main.ts
 
+/* harmony default export */ var main = (vueResponsiveFont);
+;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
 
-;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib-no-default.js
 
+/* harmony default export */ var entry_lib = (main);
 
 
 }();
