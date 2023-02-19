@@ -55,11 +55,8 @@ export default defineComponent({
       const wrapperHeight = wrapper.offsetHeight;
       const wrapperRatio = wrapperWidth / wrapperHeight;
       const fontSize = Math.floor(
-          Math.min(
-          wrapperWidth / wrapperRatio,
-          wrapperHeight * wrapperRatio
-          ) / 2
-        );
+        Math.min(wrapperWidth / wrapperRatio, wrapperHeight * wrapperRatio) / 2
+      );
       this.fontSize = Math.min(Math.max(fontSize, this.fontMin), this.fontMax);
     },
   },
