@@ -12,7 +12,7 @@
     "build:lib": "vue-cli-service build --target lib --name vue-responsive-font ./src/main.ts",
     "build:type": "tsc --emitDeclarationOnly --declaration -P tsconfig.types.json"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -28,5 +28,14 @@
     "typescript": "~4.5.5",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "font",
+    "responsive"
+  ]
 }
