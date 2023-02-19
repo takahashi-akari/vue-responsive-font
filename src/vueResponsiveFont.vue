@@ -40,27 +40,20 @@ export default defineComponent({
   },
 
   mounted() {
-    document.addEventListener('DOMContentLoaded', () => {
-      const wrapper = this.$refs.wrapper as HTMLElement;
-      const observer = new MutationObserver(() => {
-        const width = wrapper.getBoundingClientRect().width;
-        const height = wrapper.getBoundingClientRect().height;
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
         const fontSize = Math.min(
           Math.max(
-            Math.floor((width / height) * this.fontMax),
+            Math.min(width, height) * (this.fontSize / this.fontMax),
             this.fontMin
           ),
           this.fontMax
         );
         this.fontSize = fontSize;
-      });
-      observer.observe(wrapper, {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true,
-      });
+      }
     });
+    resizeObserver.observe(this.$refs.wrapper as HTMLElement);
   },
 });
 </script>
