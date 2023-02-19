@@ -40,24 +40,26 @@ export default defineComponent({
   },
 
   mounted() {
-    const wrapper = this.$refs.wrapper as HTMLElement;
-    const observer = new MutationObserver(() => {
-      const width = wrapper.getBoundingClientRect().width;
-      const height = wrapper.getBoundingClientRect().height;
-      const fontSize = Math.min(
-        Math.max(
-          Math.floor((width / height) * this.fontMax),
-          this.fontMin
-        ),
-        this.fontMax
-      );
-      this.fontSize = fontSize;
-    });
-    observer.observe(wrapper, {
-      attributes: true,
-      childList: true,
-      characterData: true,
-      subtree: true,
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrapper = this.$refs.wrapper as HTMLElement;
+      const observer = new MutationObserver(() => {
+        const width = wrapper.getBoundingClientRect().width;
+        const height = wrapper.getBoundingClientRect().height;
+        const fontSize = Math.min(
+          Math.max(
+            Math.floor((width / height) * this.fontMax),
+            this.fontMin
+          ),
+          this.fontMax
+        );
+        this.fontSize = fontSize;
+      });
+      observer.observe(wrapper, {
+        attributes: true,
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
     });
   },
 });
