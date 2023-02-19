@@ -1,2 +1,2 @@
-import vueResponsiveFont from './vueResponsiveFont.vue';
+import vueResponsiveFont from "./vueResponsiveFont.vue";
 export default vueResponsiveFont;

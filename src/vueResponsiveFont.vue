@@ -1,11 +1,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "vueResponsiveFont",
 
   data() {
     return {
-      fontSize: this.default,
+      fontSize: this.default as number,
+      fontMin: this.min as number,
+      fontMax: this.max as number,
     };
   },
 
@@ -21,44 +24,53 @@ export default defineComponent({
     default: {
       type: Number,
       default: 16,
-    }
-  },
-
-  mounted() {
-    this.responsiveFont();
-    window.addEventListener("resize", this.responsiveFont);
+    },
   },
 
   watch: {
-    min: function () {
-      this.responsiveFont();
+    min: function (val) {
+      this.fontMin = val;
     },
-    max: function () {
-      this.responsiveFont();
+    max: function (val) {
+      this.fontMax = val;
+    },
+    default: function (val) {
+      this.fontSize = val;
     },
   },
 
-  methods: {
-    responsiveFont() {
-      const wrapper = this.$refs.wrapper as Element;
-      const wrapperWidth = wrapper.clientWidth;
-      const wrapperHeight = wrapper.clientHeight;
+  mounted() {
+    const wrapper = this.$refs.wrapper as HTMLElement;
+    wrapper.addEventListener("resize", () => {
+      const wrapperWidth = wrapper.offsetWidth;
+      const wrapperHeight = wrapper.offsetHeight;
       const wrapperRatio = wrapperWidth / wrapperHeight;
+      const wrapperFontSize = wrapper.style.fontSize;
+      const wrapperFontSizeNumber = Number(wrapperFontSize.replace("px", ""));
+      const wrapperFontSizeRatio = wrapperFontSizeNumber / wrapperHeight;
 
-      const min = this.min;
-      const max = this.max;
-      const ratio = max / min;
+      if (wrapperRatio > wrapperFontSizeRatio) {
+        this.fontSize = wrapperHeight * wrapperFontSizeRatio;
+      } else {
+        this.fontSize = wrapperWidth / wrapperRatio;
+      }
 
-      const fontSize = wrapperRatio > ratio ? max : wrapperWidth / ratio;
-
-      this.fontSize = fontSize;
-    }
-  }
+      if (this.fontSize < this.fontMin) {
+        this.fontSize = this.fontMin;
+      } else if (this.fontSize > this.fontMax) {
+        this.fontSize = this.fontMax;
+      }
+    });
+  },
 });
 </script>
 
 <template>
-  <div ref="wrapper" class="vue-responsive-font" :style="{ fontSize: `${fontSize}px` }">
+  <div
+    ref="wrapper"
+    class="vue-responsive-font"
+    :style="{ fontSize: fontSize + 'px' }"
+  >
     <slot></slot>
   </div>
 </template>
