@@ -40,20 +40,28 @@ export default defineComponent({
   },
 
   mounted() {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect;
-        const fontSize = Math.min(
-          Math.max(
-            Math.min(width, height) * (this.fontSize / this.fontMax),
-            this.fontMin
-          ),
-          this.fontMax
+    this.resize();
+    window.addEventListener("resize", this.resize);
+  },
+
+  beforeUnmount() {
+    window.removeEventListener("resize", this.resize);
+  },
+
+  methods: {
+    resize() {
+      const wrapper = this.$refs.wrapper as HTMLElement;
+      const wrapperWidth = wrapper.offsetWidth;
+      const wrapperHeight = wrapper.offsetHeight;
+      const wrapperRatio = wrapperWidth / wrapperHeight;
+      const fontSize = Math.floor(
+          Math.min(
+          wrapperWidth / wrapperRatio,
+          wrapperHeight * wrapperRatio
+          ) / 2
         );
-        this.fontSize = fontSize;
-      }
-    });
-    resizeObserver.observe(this.$refs.wrapper as HTMLElement);
+      this.fontSize = Math.min(Math.max(fontSize, this.fontMin), this.fontMax);
+    },
   },
 });
 </script>
