@@ -41,7 +41,7 @@ export default defineComponent({
 
   mounted() {
     const wrapper = this.$refs.wrapper as HTMLElement;
-    wrapper.addEventListener("resize", () => {
+    const observer = new MutationObserver(() => {
       const wrapperWidth = wrapper.offsetWidth;
       const wrapperHeight = wrapper.offsetHeight;
       const wrapperRatio = wrapperWidth / wrapperHeight;
@@ -60,6 +60,8 @@ export default defineComponent({
       } else if (this.fontSize > this.fontMax) {
         this.fontSize = this.fontMax;
       }
+
+      observer.observe(wrapper, { attributes: true });
     });
   },
 });
