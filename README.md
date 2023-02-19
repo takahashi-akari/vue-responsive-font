@@ -19,10 +19,10 @@ Vue.use(VueResponsiveFont)
 ```
 
 ``` html
-<vue-responsive-font :min="12" :max="24" :min-width="320" :max-width="1024">
+<vue-responsive-font :min="12" :max="36" :default="18">
   <h1>Responsive font size</h1>
 </vue-responsive-font>
 ```
 
 ## License
-MIT License © 2023 [Takahashi Akari](https://github.com/takahashi-akari/vue-responsive-font/blob/master/LICENSE)
+MIT License © 2023 [Takahashi Akari](https://github.com/takahashi-akari/vue-responsive-font)
