@@ -19,9 +19,9 @@ Vue.use(VueResponsiveFont)
 ```
 
 ``` html
-<vue-responsive-font :min="12" :max="36" :default="18">
+<VueResponsiveFont :min="12" :max="36" :default="18">
   <h1>Responsive font size</h1>
-</vue-responsive-font>
+</VueResponsiveFont>
 ```
 
 ## License
