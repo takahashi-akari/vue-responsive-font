@@ -42,26 +42,22 @@ export default defineComponent({
   mounted() {
     const wrapper = this.$refs.wrapper as HTMLElement;
     const observer = new MutationObserver(() => {
-      const wrapperWidth = wrapper.offsetWidth;
-      const wrapperHeight = wrapper.offsetHeight;
-      const wrapperRatio = wrapperWidth / wrapperHeight;
-      const wrapperFontSize = wrapper.style.fontSize;
-      const wrapperFontSizeNumber = Number(wrapperFontSize.replace("px", ""));
-      const wrapperFontSizeRatio = wrapperFontSizeNumber / wrapperHeight;
-
-      if (wrapperRatio > wrapperFontSizeRatio) {
-        this.fontSize = wrapperHeight * wrapperFontSizeRatio;
-      } else {
-        this.fontSize = wrapperWidth / wrapperRatio;
-      }
-
-      if (this.fontSize < this.fontMin) {
-        this.fontSize = this.fontMin;
-      } else if (this.fontSize > this.fontMax) {
-        this.fontSize = this.fontMax;
-      }
-
-      observer.observe(wrapper, { attributes: true });
+      const width = wrapper.getBoundingClientRect().width;
+      const height = wrapper.getBoundingClientRect().height;
+      const fontSize = Math.min(
+        Math.max(
+          Math.floor((width / height) * this.fontMax),
+          this.fontMin
+        ),
+        this.fontMax
+      );
+      this.fontSize = fontSize;
+    });
+    observer.observe(wrapper, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
     });
   },
 });
