@@ -1,6 +1,6 @@
 {
   "name": "vue-responsive-font",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "description": "A Vue.js plugin to make your font size responsive",
   "scripts": {
@@ -37,5 +37,6 @@
     "font",
     "responsive"
   ],
-  "typings": "dist/types/main.d.ts"
+  "typings": "dist/types/main.d.ts",
+  "license": "MIT"
 }
