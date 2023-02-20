@@ -1,6 +1,9 @@
 # vue-responsive-font
 > A Vue.js component for responsive font size
 
+## Demo
+![Demo](demo.gif)
+
 
 ## Installation
 
