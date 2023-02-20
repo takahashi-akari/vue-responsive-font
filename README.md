@@ -2,7 +2,7 @@
 > A Vue.js component for responsive font size
 
 ## Demo
-![Demo](demo.gif)
+![Demo](https://github.com/takahashi-akari/vue-responsive-font/raw/master/demo.gif)
 
 
 ## Installation
