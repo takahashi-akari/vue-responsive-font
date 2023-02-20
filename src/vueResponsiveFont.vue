@@ -40,12 +40,11 @@ export default defineComponent({
   },
 
   mounted() {
-    this.resize();
-    window.addEventListener("resize", this.resize);
-  },
-
-  beforeUnmount() {
-    window.removeEventListener("resize", this.resize);
+    const element = this.$refs.wrapper as HTMLElement;
+    const resizeObserver = new ResizeObserver(() => {
+      this.resize();
+    });
+    resizeObserver.observe(element);
   },
 
   methods: {
